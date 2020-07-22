@@ -32,7 +32,7 @@ $(document).ready(function(){
 function save(username)
 {
 	if(username==""){
-		alert("用户名不能为空")；
+		alert("用户名不能为空");
 	}
 	let obj = {
 		"username" : username,// 这里面定义的变量名要跟数据库里面的字段相同
@@ -58,7 +58,7 @@ function save(username)
 		                    "username" : username,// 这里面定义的变量名要跟数据库里面的字段相同
 					        "email" : email,
 		                    "phone" : phone,
-					        "gender" :gender，
+					        "gender" :gender,
 		                    "birthday" : birthday
 		                  }
 	                          $.ajax({
@@ -82,7 +82,7 @@ function save(username)
 
 			                }
 			else{
-				alert("用户名重复，换一个~")；
+				alert("用户名重复，换一个~");
 			}
 		}
 	});

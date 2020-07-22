@@ -48,12 +48,12 @@
 			<!-- logo -->
 			<h1>
 				<a class="navbar-brand" href="index.html">Coff-ood.
-					<span>Coffee And Food</span>
+					<span>Coffee And Food...</span>
 				</a>
 			</h1>
 			<!-- //logo -->
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+			    aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -63,24 +63,50 @@
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
-					<li class="nav-item dropdown mr-lg-4">
+					<li class="nav-item mx-lg-3">
+						<a class="nav-link" href="about.html">关于我们</a>
+					</li>
+					<li class="nav-item mx-lg-3">
+						<a class="nav-link" href="gallery.html">展廊</a>
+					</li>
+					<li class="nav-item mx-lg-3" id="btnFav">
+						<a class="nav-link" href="pieRank.html">明星菜品</a>
+					</li>
+					<li class="nav-item mx-lg-3" id="btnMenu">
+						<a class="nav-link" href="menu.html">菜单</a>
+					</li>
+					<li class="nav-item mx-lg-3" id="btnShopCart">
+						<a class="nav-link" href="shopCart.html" >购物车</a>
+					</li>
+			
+					<!-- admin -->
+					<li class="nav-item mx-lg-3" id="btnUserManag" hidden="true">
+						<a class="nav-link" href="admin.html">用户管理</a>
+					</li>
+					<li class="nav-item mx-lg-3" id="btnFoodManag" hidden="true">
+						<a class="nav-link" href="upload.html">菜品管理</a>
+					</li>
+					<li class="nav-item  mx-lg-3 active" id="btnUpload" hidden="true">
+						<a class="nav-link" href="menu-table.html">菜品上传</a> 
+					</li>
+					<li class="nav-item  mx-lg-3" id="btnOrder" hidden="true">
+						<a class="nav-link" href="search.html">订单查询</a> 
+					</li>
+					<!-- user -->
+					<li class="nav-item mx-lg-3" id="btnInfo" hidden="true">
+						<a class="nav-link" href="contact.html">个人信息</a>
+					</li>
 
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-						</div>
+					<li class="nav-item mx-lg-3" id="btnSignin">
+						<a class="nav-link" href="Signin.html">登录</a>
 					</li>
-					<li class="nav-item mx-lg-4  active">
-						<a class="nav-link" href="menu.html">当前菜单</a>
+					<li class="nav-item  mx-lg-3" id="btnSignup">
+						<a class="nav-link" href="Signup.html">注册</a> 
 					</li>
-					<li class="nav-item mx-lg-4">
-						<a class="nav-link" href="upload.html">上传菜单</a>
+					<li class="nav-item  mx-lg-3" id="btnSignout" hidden="true">
+						<a class="nav-link" href="javascript:void(0);" onclick="logoutAndJump()">注销</a>
 					</li>
-					<li class="nav-item mx-lg-4">
-						<a class="nav-link" href="admin.html">管理员界面</a>
-					</li>
-					<li class="nav-item ">
-						<a class="nav-link" href="search.html">订单查询</a>
-					</li>
+					
 				</ul>
 			</div>
 		</nav>
@@ -124,7 +150,8 @@
 	<!-- Default-JavaScript-File -->
 	<script src="js/bootstrap.js"></script>
 	<!-- Necessary-JavaScript-File-For-Bootstrap -->
-
+	<script src="js/cookie.js"></script>
+	<script src="js/logout.js"></script>
 	<!-- smooth scrolling -->
 	<script src="js/SmoothScroll.min.js"></script>
 	<!-- //smooth scrolling -->
