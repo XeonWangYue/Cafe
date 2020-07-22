@@ -29,9 +29,9 @@ public class historyController
 
 	@RequestMapping("/GetHistory")
 	@ResponseBody
-	public ArrayList<String> GetHistory(HttpServletRequest request)
+	public String GetHistory(HttpServletRequest request)
 	{
-		return oaservice.GetHistory(request.getParameter("UserId"));
+		return JSONObject.toJSONString(oaservice.GetHistory(request.getParameter("UserId")));
 	}
 
 	@RequestMapping("/GetOrderInf")
