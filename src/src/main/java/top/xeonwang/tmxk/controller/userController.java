@@ -81,8 +81,6 @@ public class userController {
 		ObjectMapper om = new ObjectMapper();
 		//返回值
 		Map<String, Object> re = new HashMap<String, Object>();
-		System.out.println(text);
-		
 		User user=om.readValue(text, User.class);
 		System.out.println(user.getUserBirthday());
 		userService.AddUser(user.getUserName(),user.getUserPwd(),user.getUserPhone(),user.getUserGender(),user.getUserEmail(),user.getUserBirthday());
@@ -142,7 +140,6 @@ public class userController {
 		UserToken ut=Token.verify(cookie[cookie_index].getValue());
 
 		UserInfo user=new UserInfo(userService.getAllData(ut.getUserId()));
-		System.out.println(user.getUsername());
 		return om.writeValueAsString(user);
 	}
 	

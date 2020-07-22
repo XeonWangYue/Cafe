@@ -1,30 +1,14 @@
 var data = [];
 
-$(document).ready(function () {
-	$.ajax({
-		url: "getMenuList.action",
-		type: "POST",
-		contentType: "json",
-		dataType: "json",
-		data: "",
-		xhrFields: { withCredentials: true },
-		success: function (result) {
-			$('#table').bootstrapTable('load',result);//在下面的测试中发现不需要通过JSON.stringify转化为对象，json数组可以直接转化成表格的数据
-		}
-	})
-})
 
 $('#table').bootstrapTable({
-
+	url: "getMenuList.action",
 	locale: 'zh-CN',
 	search: true,
-
-	data: data,    // 表格数据来源
+	toolbar:"#toolbar",   // 表格数据来源
 	checkbox: true,
 	pagination: true, // 是否分页
-
 	pageSize: 30, // 单页记录数
-
 	columns: [
 		{
 			checkbox: true

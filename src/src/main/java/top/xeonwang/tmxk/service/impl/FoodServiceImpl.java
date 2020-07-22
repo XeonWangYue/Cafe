@@ -32,35 +32,35 @@ public class FoodServiceImpl implements FoodService
 	}
 
 	@Override
-	public void UpdateName(String FoodId, String FoodName)
+	public void UpdateName(Integer FoodId, String FoodName)
 	{
 		// TODO Auto-generated method stub
 		foodmapper.UpdateName(FoodId, FoodName);
 	}
 
 	@Override
-	public void UpdateType(String FoodId, String FoodType)
+	public void UpdateType(Integer FoodId, String FoodType)
 	{
 		// TODO Auto-generated method stub
 		foodmapper.UpdateType(FoodId, FoodType);
 	}
 
 	@Override
-	public void UpdateStore(String FoodId, long FoodStore)
+	public void UpdateStore(Integer FoodId, long FoodStore)
 	{
 		// TODO Auto-generated method stub
 		foodmapper.UpdateStore(FoodId, FoodStore);
 	}
 
 	@Override
-	public void UpdateUnit(String FoodId, String FoodUnit)
+	public void UpdateUnit(Integer FoodId, String FoodUnit)
 	{
 		// TODO Auto-generated method stub
 		foodmapper.UpdateUnit(FoodId, FoodUnit);
 	}
 
 	@Override
-	public void UpdateImg(String FoodId, String FoodImg)
+	public void UpdateImg(Integer FoodId, String FoodImg)
 	{
 		// TODO Auto-generated method stub
 		foodmapper.UpdateImg(FoodId, FoodImg);
@@ -74,14 +74,14 @@ public class FoodServiceImpl implements FoodService
 	}
 
 	@Override
-	public void DropFood(String FoodId)
+	public void DropFood(Integer FoodId)
 	{
 		// TODO Auto-generated method stub
 		foodmapper.DropFood(FoodId);
 	}
 
 	@Override
-	public void UpdatePrice(String FoodId, double FoodPrice)
+	public void UpdatePrice(Integer FoodId, double FoodPrice)
 	{
 		// TODO Auto-generated method stub
 		foodmapper.UpdatePrice(FoodId, FoodPrice);
@@ -95,7 +95,7 @@ public class FoodServiceImpl implements FoodService
 	}
 
 	@Override
-	public int GetStock(String FoodId)
+	public int GetStock(Integer FoodId)
 	{
 		// TODO Auto-generated method stub
 		return foodmapper.GetStock(FoodId);

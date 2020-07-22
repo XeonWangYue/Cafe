@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="top.xeonwang.tmxk.dao.OFUMapper">
 	<insert id="AddOFU">
-		INSERET INTO OFU(orderid,foodid,foodnumber)
+		INSERT INTO OFU(orderid,foodid,foodnumber)
 		Values(#{OrderId},#{FoodId},#{FoodNumber})
 	</insert>
 

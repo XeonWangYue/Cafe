@@ -18,19 +18,19 @@ public interface FoodMapper
 	 * 
 	 * 
 	 */
-	public void UpdateName(@Param("FoodId") String FoodId,@Param("FoodName") String FoodName);
-	public void UpdateType(@Param("FoodId") String FoodId,@Param("FoodType") String FoodType);	
+	public void UpdateName(@Param("FoodId") Integer FoodId,@Param("FoodName") String FoodName);
+	public void UpdateType(@Param("FoodId") Integer FoodId,@Param("FoodType") String FoodType);	
 	//为减少对应id的foodstock	
-	public void UpdateStore(@Param("FoodId") String FoodId,@Param("FoodStock") long FoodStock);
-	public void UpdateUnit(@Param("FoodId") String FoodId,@Param("FoodUnit") String FoodUnit);
-	public void UpdateImg(@Param("FoodId") String FoodId,@Param("FoodImg") String FoodImg);
-	public void UpdatePrice(@Param("FoodId") String FoodId,@Param("FoodPrice") double foodPrice);
+	public void UpdateStore(@Param("FoodId") Integer FoodId,@Param("FoodStock") long FoodStock);
+	public void UpdateUnit(@Param("FoodId") Integer FoodId,@Param("FoodUnit") String FoodUnit);
+	public void UpdateImg(@Param("FoodId") Integer FoodId,@Param("FoodImg") String FoodImg);
+	public void UpdatePrice(@Param("FoodId") Integer FoodId,@Param("FoodPrice") double foodPrice);
 	//根据名字查找id
 	public String FindByName(@Param("FoodName") String FoodName);
 	//根据id查找库存
-	public int GetStock(@Param("FoodId") String FoodId);
+	public int GetStock(@Param("FoodId") Integer FoodId);
 	//删除菜单
-	public void DropFood(@Param("FoodId") String FoodId);
+	public void DropFood(@Param("FoodId") Integer FoodId);
 	//获取全部菜品
 	public List<Food> GetAll();
 	

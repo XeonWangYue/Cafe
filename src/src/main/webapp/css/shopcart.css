@@ -24,3 +24,11 @@
 .table input{
     text-align:center;
 }
+
+.btnOrder{
+	width:200px;
+	height:80px;
+	font-size:20pt;
+	vertical-align: middle;
+}
+

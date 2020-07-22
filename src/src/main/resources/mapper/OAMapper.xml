@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="top.xeonwang.tmxk.dao.OAMapper">
 	<insert id="AddOA">
-		INSERET INTO tmxk.OA(orderid,adminid,userid)
+		INSERT INTO tmxk.OA(orderid,adminid,userid)
 		Values(#{OrderId},"admin",#{AdminId},#{UserId})
 	</insert>
 
@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		Select orderid FROM tmxk.OA WHERE userid = #{UserId}
 	</select>
 	
-	<select id="GetOrderid" resultType="String">
+	<select id="GetAllOrderid" resultType="String">
 	SELECT orderid FROM tmxk.OA
 	</select>
 

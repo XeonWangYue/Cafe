@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="top.xeonwang.tmxk.dao.OrderMapper">
 	<insert id="AddOrder">
-		INSERET INTO
+		INSERT INTO
 		tmxk.ORDERINF(orderid,orderstatus)
 		Values(#{OrderId},3)
 	</insert>

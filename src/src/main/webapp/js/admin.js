@@ -1,28 +1,14 @@
 var data = [];
 
-$(document).ready(function () {
-	$.ajax({
-		url: "getAllUser.action",
-		type: "POST",
-		contentType: "json",
-		dataType: "json",
-		data: "",
-		xhrFields: { withCredentials: true },
-		success: function (result) {
-			$('#table').bootstrapTable('load',result);
-		}
-	})
-})
-
 $('#table').bootstrapTable({
-
+	url: "getAllUser.action",
 	locale: 'zh-CN',
 	search: true,
 
 	data: data,    // 表格数据来源
 	checkbox: true,
 	pagination: true, // 是否分页
-
+	toolbar:"#toolbar",
 	pageSize: 30, // 单页记录数
 
 	columns: [

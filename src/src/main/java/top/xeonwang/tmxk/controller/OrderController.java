@@ -1,5 +1,6 @@
 package top.xeonwang.tmxk.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import top.xeonwang.tmxk.domain.UF;
 import top.xeonwang.tmxk.domain.UserOrder;
 import top.xeonwang.tmxk.domain.UserToken;
 import top.xeonwang.tmxk.service.FoodService;
@@ -45,15 +47,17 @@ public class OrderController
 		String token = null;
 		ObjectMapper om = new ObjectMapper();
 		String text = myUtil.readData(request);
-		List listObjectFour = JSONArray.parseArray(text,Map.class);	
-		UserOrder order = (UserOrder) listObjectFour;
+		
+		List<UF> listObjectFour = JSONArray.parseArray(text,UF.class);	
+		
+		System.out.println(listObjectFour.get(0).getFoodId());
 		Cookie[] cookie=request.getCookies();
 		int cookie_index = -1;
 
 		Map<String, Object> re = new HashMap<String, Object>();
 		re.put("ok","false");
 
-		if(order == null || cookie == null)
+		if(listObjectFour == null || cookie == null)
 			return om.writeValueAsString(re);
 		
 		for(int i = 0;i < cookie.length;i++)
@@ -76,15 +80,15 @@ public class OrderController
 		oaservice.AddOA(OrderId, ut.getUserId());
 
 		// 增加ofu表数据
-		for (int i = 0; i < order.getFoodInf().size(); i++)
-			ofuservice.AddOFU(OrderId, order.getFoodInf().get(i).getFoodId(),
-					order.getFoodInf().get(i).getFoodNumber());
+		for (int i = 0; i < listObjectFour.size(); i++)
+			ofuservice.AddOFU(OrderId, listObjectFour.get(i).getFoodId(),
+					listObjectFour.get(i).getFoodNumber());
 		
 		//修改food表信息
-		for(int i = 0;i < order.getFoodInf().size(); i++)
+		for(int i = 0;i < listObjectFour.size(); i++)
 		{
-			if(foodservice.GetStock(order.getFoodInf().get(i).getFoodId()) - order.getFoodInf().get(i).getFoodNumber() > 0)
-				foodservice.UpdateStore(order.getFoodInf().get(i).getFoodId(), order.getFoodInf().get(i).getFoodNumber());
+			if(foodservice.GetStock(listObjectFour.get(i).getFoodId()) - listObjectFour.get(i).getFoodNumber() > 0)
+				foodservice.UpdateStore(listObjectFour.get(i).getFoodId(), listObjectFour.get(i).getFoodNumber());
 			else
 			{
 				re.put("error", "false");

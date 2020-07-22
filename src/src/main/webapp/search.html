@@ -14,6 +14,7 @@
 	<!-- Style-CSS -->
 	<link rel="stylesheet" href="css/fontawesome-all.css">
 	<link rel="stylesheet" href="css/upload.css">
+	<link rel="stylesheet" href="css/bootstrap-table.min.css">
 	<!-- Font-Awesome-Icons-CSS -->
 	<!-- //Custom-Files -->
 	<link rel="shortcut icon" href="images/favicon.ico">
@@ -103,17 +104,17 @@
 	</nav>
 <body>
 	
+
 	<div class="container">
-		<br/><br/><br/><br/>
 		<!--以下是点击新增，编辑，删除的toolbox -->
-		<div id="toolbar">
+		<div id="toolbar" class="buttons-toolbar">
 			<button id="remove" class="btn btn-danger">删除</button>
 			<button id="insert" class="btn btn-secondary">新增</button>
 			<button id="update" class="btn btn-dark">更新</button>
 		</div>
-
-		<table id="table" class="table"></table>
+		<table id="table"></table>
 	</div>
+
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/jquery.cookie.js"></script>
 	<script src="js/bootstrap-table.min.js"></script>

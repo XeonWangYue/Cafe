@@ -20,14 +20,14 @@ public class OFUServiceImpl implements OFUService
 	private OFUMapper ofumapper;
 
 	@Override
-	public void AddOFU(String OrderId, String FoodId, Integer FoodNumber)
+	public void AddOFU(String OrderId, Integer FoodId, Integer FoodNumber)
 	{
 		// TODO Auto-generated method stub
 		ofumapper.AddOFU(OrderId, FoodId, FoodNumber);
 	}
 
 	@Override
-	public void DropOFU(String OrderId, String FoodId, Integer FoodNumber)
+	public void DropOFU(String OrderId, Integer FoodId, Integer FoodNumber)
 	{
 		// TODO Auto-generated method stub
 		ofumapper.DropOFU(OrderId, FoodId, FoodNumber);

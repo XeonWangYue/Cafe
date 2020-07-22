@@ -11,9 +11,9 @@ import top.xeonwang.tmxk.domain.OrderFood;
 public interface OFUMapper
 {
 	//新建 订单-食物-用户
-	public void AddOFU(@Param("OrderId") String OrderId,@Param("FoodId") String FoodId,@Param("FoodNumber") Integer FoodNumber);
+	public void AddOFU(@Param("OrderId") String OrderId,@Param("FoodId") Integer FoodId,@Param("FoodNumber") Integer FoodNumber);
 	//删除 订单-食物-用户
-	public void DropOFU(@Param("OrderId") String OrderId,@Param("FoodId") String FoodId,@Param("FoodNumber") Integer FoodNumber);
+	public void DropOFU(@Param("OrderId") String OrderId,@Param("FoodId") Integer FoodId,@Param("FoodNumber") Integer FoodNumber);
 	//根据订单号获取订单详细信息
 	public ArrayList<OrderFood> GetOrder(@Param("OrderId") String OrderId);
 	//获取最受欢迎菜品

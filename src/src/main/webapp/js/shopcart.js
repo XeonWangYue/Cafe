@@ -1,13 +1,16 @@
 // JavaScript Document
 
 function onNumberChange(){
+    if(parseInt(arguments[1].value)<=0){
+        alert("非法值！");
+        arguments[1].value=1;
+    }
     var parent=arguments[0];
     var price=parent.nextElementSibling;
     var total=price.nextElementSibling;
-    console.log(arguments[1]);
-    console.log(Number(price.innerHTML));
-    total.innerHTML=Number(price.innerHTML)*arguments[1];
-    console.log(total);
+    total.innerHTML=Number(price.innerHTML)*arguments[1].value;
+
+    shop.setCount(parent.parentNode.id,parseInt(arguments[1].value)-parseInt(shop.getCount(parent.parentNode.id)));
 }
 function del(node){
     if(confirm("确认从购物车中移除该商品？")){
@@ -30,12 +33,11 @@ $(document).ready(function(){
 });
 
 function addRow(foodId,foodImg,foodName,quantity,foodPrice){
-    console.log("222");
     var row=
     '<tr id='+foodId+'>'+
     '<td name="image"><img src="images/'+foodImg+'" alt="实物图" /></td>'+
     '<td name="name">'+foodName+'</td>'+
-    '<td name="quantity"><input onChange="onNumberChange(parentNode,this.value);addRow()" min="1" type="number" class="input-number" value="'+quantity+'"/></td>'+
+    '<td name="quantity"><input onChange="onNumberChange(parentNode,this);" min="1" type="number" class="input-number" value="'+quantity+'"/></td>'+
     '<td name="price">'+foodPrice+'</td>'+
     '<td name="total">'+foodPrice*quantity+'</td>'+
     '<td name="option"><div onclick="del(parentNode.parentNode)" class="del">删除</div></td>'+
@@ -47,7 +49,6 @@ function addRow(foodId,foodImg,foodName,quantity,foodPrice){
 var shop={};
 shop.addProduct = function (id, name,img, price, count) {
     var carInfo = shop.readData();
-    console.log(carInfo);
     var have=false;
     for(var i=0;i<carInfo.length;i++){
         if(carInfo[i].id==id){
@@ -122,28 +123,24 @@ shop.getPrice = function () {
 shop.setCount = function (id, count) {
     var carItems = shop.readData()
     for (var i in carItems) {
-        if (i == id) {
-            shop.addProduct(id, carItems[i].name, carItems[i].price, count);
+        if (carItems[i].id == id) {
+            console.log(count);
+            shop.addProduct(id, carItems[i].name,carItems[i].img,carItems[i].price, count);
         }
- 
     }
 }
  
 //得到总数量 update 2016-3-31 14:35:03 by Questionfeet
-shop.getCount = function () {
-    var count = 0;
-    var shop_car = $.cookie("shop-car");
-    var reInfo = {};
-    if (shop_car) {
-        shop_car = shop_car.split(";");
-        for (var i = 0 ; i < shop_car.length; i++) {
-            if (shop_car[i]) {
-                shop_car[i] = shop_car[i].split(",");
-                count += parseInt(shop_car[i][3]);
-            }
+shop.getCount = function (id) {
+    var carItems = shop.readData()
+    console.log(carItems);
+    for (var i in carItems) {
+        console.log(id,carItems[i].id)
+        if (carItems[i].id == id) {
+            return carItems[i].count;
         }
     }
-    return count;
+    return 0;
 }
  
 shop.clear = function () {

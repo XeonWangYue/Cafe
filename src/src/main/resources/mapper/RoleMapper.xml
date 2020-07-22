@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="top.xeonwang.tmxk.dao.RoleMapper">
 	<insert id = "AddRole">
-		INSERET INTO ROLETABLE(roleid,rolename)
+		INSERT INTO ROLETABLE(roleid,rolename)
 		Values(#{RoleId},#{RoleName})	
 	</insert>
 	

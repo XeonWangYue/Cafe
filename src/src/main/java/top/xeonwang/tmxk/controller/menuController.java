@@ -35,14 +35,11 @@ public class menuController {
 	@RequestMapping("/getMenuList")
 	@ResponseBody
 	public String getMenu() throws JsonProcessingException {
-		System.out.println("getMenu");
 		if(foodservice.GetAll()==null) {
-			System.out.println("false");
 			return null;
 		}
 //		ObjectMapper om=new ObjectMapper();
 //		JSONArray ja=new JSONArray();
-		
 		return JSONObject.toJSONString(foodservice.GetAll());
 	}
 	
@@ -57,7 +54,6 @@ public class menuController {
 		request.setCharacterEncoding("UTF-8");
 		Map<String, Object> re = new HashMap<String, Object>();
 		String text=new String();
-		System.out.println(text);
 		
 		Food food=om.readValue(myUtil.readData(request), Food.class);
 		
@@ -106,9 +102,6 @@ public class menuController {
 			}
 
         }
-       
-		System.out.println("success");
-		
 		return om.writeValueAsString(re);
 	}
 	

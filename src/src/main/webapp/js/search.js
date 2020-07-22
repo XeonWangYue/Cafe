@@ -1,30 +1,15 @@
 var data = [];
 
-$(document).ready(function () {
-	$.ajax({
-		url: "getOrderInf.action",
-		type: "POST",
-		contentType: "json",
-		dataType: "json",
-		data: "",
-		xhrFields: { withCredentials: true },
-		success: function (result) {
-			$('#table').bootstrapTable('load',result);//在下面的测试中发现不需要通过JSON.stringify转化为对象，json数组可以直接转化成表格的数据
-		}
-	})
-})
 
 $('#table').bootstrapTable({
-
+	url: "getOrderInf.action",
 	locale: 'zh-CN',
 	search: true,
-
+	toolbar:"#toolbar",
 	data: data,    // 表格数据来源
 	checkbox: true,
 	pagination: true, // 是否分页
-
 	pageSize: 30, // 单页记录数
-
 	columns: [
 		{
 			checkbox: true
@@ -40,9 +25,9 @@ $('#table').bootstrapTable({
 			field: 'orderTime',
 		},
 		{
-			title: '操作',
+			title: '金额',
 			width: 100,
-			field: 'operator'
+			field: 'totalPrice'
 		}
 	],
 	onClickCell: function (field, value, row, $element) {
