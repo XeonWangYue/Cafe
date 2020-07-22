@@ -47,13 +47,18 @@ function addOne(src,foodid,name,price,type){
 				  '<div class="row no-gutters"><h6>'+name+' ￥'+price+'</h6>'+
 				  '<div class="col-lg-6 col-6"><div class="choose-food-btn text-right">'+
                   '<a href="javascript:void(0);" '+
-                  'onclick=\'shop.addProduct("'+foodid+'","'+name+'","'+src+'","'+price+'","1");\' title="add" class="btn btn-success">加入购物车</a>'+
+                  'onclick=\'addToShop("'+foodid+'","'+name+'","'+src+'","'+price+'","1");\' title="add" class="btn btn-success">加入购物车</a>'+
                   '</div></div></div></div>';
     console.log(foodtype);
     var root=document.getElementById(foodtype);
     root.childNodes[3].appendChild(div);
 };
 
+function addToShop(foodid,name,src,price,number){
+    if(confirm("是否添加的购物车")){
+        shop.addProduct(foodid,name,src,price,number);
+    }
+}
 var food1={
     "id":"wudikafei2",
     "src":"images/menu2.jpg",

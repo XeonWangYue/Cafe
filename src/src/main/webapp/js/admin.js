@@ -1,44 +1,5 @@
 var data = [];
-var op = '<a href="javascript:void(0) onclick="delRow();">删除</a> ' +
-	'<a href="javascript:void(0) onclick="delRow();">编辑</a>'
-data = [
-	{
-		"userid": 1,
-		"username": "玛利亚凯莉",
-		"userpwd": "19",
-		"usergender": 0,
-		"userphone": "1567865475",
-		"useremail": "109983@qq.com",
-		"userbirthday": "2000/0909"
-	},
-	{
-		"userid": 1,
-		"username": "玛利亚凯莉",
-		"userpwd": "19",
-		"usergender": 0,
-		"userphone": "1567865475",
-		"useremail": "109983@qq.com",
-		"userbirthday": "2000/0909"
-	},
-	{
-		"userid": 1,
-		"username": "玛利亚凯莉",
-		"userpwd": "19",
-		"usergender": 0,
-		"userphone": "1567865475",
-		"useremail": "109983@qq.com",
-		"userbirthday": "2000/0909"
-	},
-	{
-		"userid": 1,
-		"username": "玛利亚凯莉",
-		"userpwd": "19",
-		"usergender": 0,
-		"userphone": "1567865475",
-		"useremail": "109983@qq.com",
-		"userbirthday": "2000/0909"
-	}
-];
+
 $(document).ready(function () {
 	$.ajax({
 		url: "getAllUser.action",
@@ -48,7 +9,7 @@ $(document).ready(function () {
 		data: "",
 		xhrFields: { withCredentials: true },
 		success: function (result) {
-			$('#table').bootstrapTable('load',result);//在下面的测试中发现不需要通过JSON.stringify转化为对象，json数组可以直接转化成表格的数据
+			$('#table').bootstrapTable('load',result);
 		}
 	})
 })
