@@ -17,5 +17,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="GetOrderid" resultType="String">
 		Select orderid FROM tmxk.OA WHERE userid = #{UserId}
 	</select>
+	
+	<select id="GetOrderid" resultType="String">
+	SELECT orderid FROM tmxk.OA
+	</select>
 
 </mapper>
