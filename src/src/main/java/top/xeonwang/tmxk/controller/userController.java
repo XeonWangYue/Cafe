@@ -190,7 +190,7 @@ public class userController {
 		userService.UpdateName(ut.getUserId(), user.getUsername());
 		userService.UpdateEmail(ut.getUserId(), user.getEmail());
 		userService.UpdatePhone(ut.getUserId(), user.getPhone());
-		userService.UpdateSex(ut.getUserId(), user.getPhone());
+		userService.UpdateGender(ut.getUserId(), user.getPhone());
 		userService.UpdateBirthday(ut.getUserId(), user.getBirthday());
 		
 		re.put("ok", "true");

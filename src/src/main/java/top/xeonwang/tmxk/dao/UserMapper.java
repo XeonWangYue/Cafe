@@ -19,7 +19,7 @@ public interface UserMapper
 	public void UpdateName(@Param("UserId") int UserId,@Param("UserName") String UserName);
 	public void UpdatePwd(@Param("UserId") int UserId,@Param("UserPwd") String UserPwd);
 	public void UpdatePhone(@Param("UserId") int UserId,@Param("UserPhone") String UserPhone);
-	public void UpdateSex(@Param("UserId") int UserId,@Param("UserSex") String UserSex);
+	public void UpdateGender(@Param("UserId") int UserId,@Param("UserGender") String UserGender);
 	public void UpdateEmail(@Param("UserId") int UserId,@Param("UserEmail") String UserEmail);
 	public void UpdateBirthday(@Param("UserId") int UserId,@Param("UserBirthday") String UserBirthday);
 

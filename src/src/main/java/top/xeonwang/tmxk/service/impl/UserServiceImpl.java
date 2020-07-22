@@ -64,9 +64,9 @@ public class UserServiceImpl implements UserService
 		usermapper.UpdatePhone(UserId, UserPhone);
 	}
 
-	public void UpdateSex(int UserId, String UserSex)
+	public void UpdateGender(int UserId, String UserGender)
 	{
-		usermapper.UpdateSex(UserId, UserSex);
+		usermapper.UpdateGender(UserId, UserGender);
 	}
 
 	public void UpdateEmail(int UserId, String UserEmail)
@@ -98,7 +98,7 @@ public class UserServiceImpl implements UserService
 	public void UpdateBirthday(int UserId, String UserBirthday)
 	{
 		// TODO Auto-generated method stub
-		
+		usermapper.UpdateBirthday(UserId, UserBirthday);
 	}
 
 }
