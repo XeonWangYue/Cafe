@@ -19,7 +19,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import top.xeonwang.tmxk.domain.User;
 import top.xeonwang.tmxk.domain.UserInfo;
 import top.xeonwang.tmxk.domain.UserLogin;
@@ -153,5 +152,46 @@ public class userController {
 	{
 		return JSONObject.toJSONString(userService.GetAll());
 	}
+	
+	@RequestMapping("/save")
+	@ResponseBody
+	public String SaveData(HttpServletRequest request) throws JsonProcessingException
+	{
+		String text=myUtil.readData(request);
+		ObjectMapper om = new ObjectMapper();
+		Cookie[] cookie=request.getCookies();
+		Map<String, Object> re = new HashMap<String, Object>();
+		int cookie_index = -1;
+		if(cookie==null) {
+			re.put("ok","false");
+			return om.writeValueAsString(re);
+		}
+		
+		for(int i = 0;i < cookie.length;i++)
+		{
+			if(cookie[i].getName().equals("token"))
+				cookie_index = i;
+		}
+		
+		if(cookie_index == -1)
+		{
+			re.put("ok","false");
+			return om.writeValueAsString(re);
+		}
+		
+		UserToken ut=Token.verify(cookie[cookie_index].getValue());
+
+		UserInfo user=new UserInfo(userService.getAllData(ut.getUserId()));
+		
+		userService.UpdateName(ut.getUserId(), user.getUsername());
+		userService.UpdateEmail(ut.getUserId(), user.getEmail());
+		userService.UpdatePhone(ut.getUserId(), user.getPhone());
+		userService.UpdateSex(ut.getUserId(), user.getPhone());
+		userService.UpdateBirthday(ut.getUserId(), user.getBirthday());
+		
+		re.put("ok", "true");
+		return om.writeValueAsString(re);
+	}
+	
 	
 }

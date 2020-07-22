@@ -45,7 +45,7 @@ function save(username) {
 				check_username = true;
 				let username = $("#username").val();
 				let phone = $("#tel").val();
-				let gender = $("input[name='gender']:checked").val();
+				let gender = ($("#gender").val()=="男")?0:1;
 				let birthday = $("#birthday").val();
 				let email = $("#email").val();
 				var obj = {

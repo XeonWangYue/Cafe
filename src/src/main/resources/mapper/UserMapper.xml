@@ -55,6 +55,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE userid = #{UserId}
 	</update>
 	
+	<update id="UpdateBirthday">
+		update USER
+		SET userbirthday = #{UpdateBirthday} 
+		WHERE userid = #{UserId}
+	</update>
+	
 	<delete id="DropUser">
 		DELETE FROM USER	
 		WHERE userid = #{UserId}

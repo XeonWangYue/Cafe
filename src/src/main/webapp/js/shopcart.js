@@ -150,3 +150,30 @@ shop.clear = function () {
     $.cookie("shop-car", "");
     return;
 }
+
+$("#getOrder").click(function(){
+    var temp=shop.readData();
+    console.log(temp);
+    var data=[];
+    for(var i=0;i<temp.length;i++){
+        data.push({
+            FoodId:temp[i].id,
+            FoodNumber:parseInt(temp[i].count)
+        })
+    }
+    if($.cookie("token")!=null){
+        $.ajax({
+            url:"order.action",
+            type:"POST",
+            dataType:"json",
+            contentType:"json",
+            data:JSON.stringify(data),
+            success:function(){
+                alert("订单提交成功");
+            }
+        })
+    }else{
+        alert("您还未登录，请登陆后下单！");
+        location.href("Signin.html");
+    }
+});
