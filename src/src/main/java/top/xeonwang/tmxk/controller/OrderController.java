@@ -1,6 +1,5 @@
 package top.xeonwang.tmxk.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +17,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import top.xeonwang.tmxk.domain.OrderFood;
 import top.xeonwang.tmxk.domain.UserOrder;
 import top.xeonwang.tmxk.domain.UserToken;
 import top.xeonwang.tmxk.service.FoodService;

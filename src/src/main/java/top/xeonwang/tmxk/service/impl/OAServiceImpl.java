@@ -24,17 +24,24 @@ public class OAServiceImpl implements OAService
 	}
 
 	@Override
-	public void DropOa(String OrderId, String AdminId, String UserId)
+	public void DropOa(String OrderId, String AdminId, int UserId)
 	{
 		// TODO Auto-generated method stub
 		oamapper.DropOa(OrderId, AdminId, UserId);
 	}
 
 	@Override
-	public ArrayList<String> GetHistory(String UserId)
+	public ArrayList<String> GetHistory(int UserId)
 	{
 		// TODO Auto-generated method stub
 		return oamapper.GetHistory(UserId);
+	}
+
+	@Override
+	public ArrayList<String> GetAllHistory()
+	{
+		// TODO Auto-generated method stub
+		return oamapper.GetAllHistory();
 	}
 	
 	
