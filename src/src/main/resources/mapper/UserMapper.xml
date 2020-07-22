@@ -74,4 +74,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE username = #{UserName}
 	</select>
 	
+	<select id="GetAll" resultType="top.xeonwang.tmxk.domain.User">
+	SELECT * FROM tmxk.USER
+	</select>
+	
 </mapper>

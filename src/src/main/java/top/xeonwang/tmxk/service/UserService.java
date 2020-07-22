@@ -1,6 +1,7 @@
 package top.xeonwang.tmxk.service;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 
 import top.xeonwang.tmxk.domain.User;
 
@@ -27,4 +28,6 @@ public interface UserService
 	public String CheckUserName(String UserName);
 // 	返回所有信息
 	public User getAllData(Integer UserId);
+//	获取所有用户信息	
+	public ArrayList<User> GetAll();
 }

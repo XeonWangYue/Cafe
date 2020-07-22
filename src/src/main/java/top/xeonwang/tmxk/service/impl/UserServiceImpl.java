@@ -2,6 +2,7 @@ package top.xeonwang.tmxk.service.impl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.annotation.Resource;
@@ -84,5 +85,12 @@ public class UserServiceImpl implements UserService
 	public User getAllData(Integer UserId) 
 	{
 		return usermapper.getAllData(UserId);
+	}
+
+	@Override
+	public ArrayList<User> GetAll()
+	{
+		// TODO Auto-generated method stub
+		return usermapper.GetAll();
 	}
 }
