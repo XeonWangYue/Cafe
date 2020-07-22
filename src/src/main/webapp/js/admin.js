@@ -32,36 +32,36 @@ $('#table').bootstrapTable({
 		{
 			title: '用户id',
 			width: 50,
-			field: 'userid',
+			field: 'userId',
 			visible: false
 		},
 		{
 			title: '用户姓名',
 			width: 110,
-			field: 'username',
+			field: 'userName',
 		},
 		{
 			title: '密码',
 			width: 100,
-			field: 'userpwd',
+			field: 'userPwd',
 		},{
 			title: '联系电话',
 			width: 100,
-			field: 'userphone'
+			field: 'userPhone'
 		},{
 			title: '用户生日',
 			width: 100,
-			field: 'userbirthday'
+			field: 'userBirthday'
 		},
 		{
 			title: '性别',
-			field: 'usergender',
+			field: 'userGender',
 			width: 30,
 			formatter: formatSex
 		}, {
 			title: '用户邮箱',
 			width: 100,
-			field: 'useremail'
+			field: 'userEmail'
 		}
 	],
 	onClickCell: function (field, value, row, $element) {
@@ -83,10 +83,10 @@ var $insert = $('#insert');
 $remove.click(function () {
 	var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
 		console.log(row);
-		return row.userid;
+		return row.userId;
 	})
 	$table.bootstrapTable('remove', {
-		field: 'userid',
+		field: 'userId',
 		values: ids
 	})
 });
@@ -113,12 +113,13 @@ $insert.click(function () {
 	$table.bootstrapTable('insertRow', {
 		index: 0,
 		row: {
-			UserID : "",
-			UserName: "",
-			UserPwd: "",
-			UserSex: 2,
-			UserPhone: "",
-			UserEmail: ""
+			userId : "",
+			userName: "",
+			userPwd: "",
+			userGender: 2,
+			userPhone: "",
+			userEmail: "",
+			userBirthday:""
 		}
 	})
 });

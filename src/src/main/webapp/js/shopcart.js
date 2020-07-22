@@ -22,25 +22,10 @@ function del(node){
  */
 
 $(document).ready(function(){
-    // shop.addProduct(1,23423,"3.jpg",12,144);
-    if($.cookie('token')!=null){
-        $.ajax({
-            url:"getShopcart.action",
-            type:"POST",
-            contentType:"json",
-            dataType:"json",
-            xhrFields: { withCredentials: true },
-            success:function(result){
-                
-            },
-        })
-    }
-    else{
-        var shopcar=shop.readData();
-        console.log(shopcar);
-        for(var i=0;i<shopcar.length;i++){
-            addRow(shopcar[i].id,shopcar[i].img,shopcar[i].name,shopcar[i].count,shopcar[i].price);
-        }
+    var shopcar=shop.readData();
+    console.log(shopcar);
+    for(var i=0;i<shopcar.length;i++){
+        addRow(shopcar[i].id,shopcar[i].img,shopcar[i].name,shopcar[i].count,shopcar[i].price);
     }
 });
 
@@ -57,7 +42,9 @@ function addRow(foodId,foodImg,foodName,quantity,foodPrice){
     '</tr>';
     $("#table").append(row);
 }
-var shop=[];
+
+
+var shop={};
 shop.addProduct = function (id, name,img, price, count) {
     var carInfo = shop.readData();
     console.log(carInfo);

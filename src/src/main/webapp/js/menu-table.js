@@ -1,47 +1,8 @@
 var data = [];
-var op = '<a href="javascript:void(0) onclick="delRow();">删除</a> ' +
-	'<a href="javascript:void(0) onclick="delRow();">编辑</a>'
-data = [
-	{
-		"foodid": 1,
-		"foodname": "玛利亚凯莉",
-		"foodtype": "19",
-		"foodstock": 0,
-		"foodunit": "1567865475",
-		"foodprice": "109983@qq.com",
-		"foodimg": "2000/0909"
-	},
-	{
-		"userid": 1,
-		"username": "玛利亚凯莉",
-		"userpwd": "19",
-		"usergender": 0,
-		"userphone": "1567865475",
-		"useremail": "109983@qq.com",
-		"userbirthday": "2000/0909"
-	},
-	{
-		"userid": 1,
-		"username": "玛利亚凯莉",
-		"userpwd": "19",
-		"usergender": 0,
-		"userphone": "1567865475",
-		"useremail": "109983@qq.com",
-		"userbirthday": "2000/0909"
-	},
-	{
-		"userid": 1,
-		"username": "玛利亚凯莉",
-		"userpwd": "19",
-		"usergender": 0,
-		"userphone": "1567865475",
-		"useremail": "109983@qq.com",
-		"userbirthday": "2000/0909"
-	}
-];
+
 $(document).ready(function () {
 	$.ajax({
-		url: "getAllUser.action",
+		url: "getMenuList.action",
 		type: "POST",
 		contentType: "json",
 		dataType: "json",
@@ -71,35 +32,36 @@ $('#table').bootstrapTable({
 		{
 			title: '食物代号',
 			width: 70,
-			field: 'foodid',
+			field: 'foodId',
+			visible:false
 		},
 		{
 			title: '食物名称',
 			width: 110,
-			field: 'foodname',
+			field: 'foodName',
 		},
 		{
 			title: '食物类型',
 			width: 100,
-			field: 'foodtype',
+			field: 'foodType',
 		},{
 			title: '库存量',
 			width: 100,
-			field: 'foodstock'
+			field: 'foodStock'
 		},{
 			title: '单位',
 			width: 100,
-			field: 'foodunit'
+			field: 'foodUnit'
 		},
 		{
 			title: '食物价格',
-			field: 'foodprice',
+			field: 'foodPrice',
 			width: 30,
 			
 		}, {
 			title: '食物图片路径',
 			width: 100,
-			field: 'foodimg'
+			field: 'foodImg'
 		}
 	],
 	onClickCell: function (field, value, row, $element) {
@@ -117,40 +79,14 @@ var $update = $('#update');
 var $remove = $('#remove');
 var $insert = $('#insert');
 var $test = $('#test');
-$test.click(function(){
-	var data = [];
-	var res = $table.bootstrapTable('getData');
-	var json = JSON.stringify(res);
-	alert(json);
-	data = [
-		{
-		"userid": 1,
-		"username": "小红",
-		"userpwd": "19",
-		"usergender": 0,
-		"userphone": "1567865475",
-		"useremail": "109983@qq.com",
-		"userbirthday": "2000/0909"
-	},
-	{
-		"userid": 1,
-		"username": "小明",
-		"userpwd": "19",
-		"usergender": 0,
-		"userphone": "1567865475",
-		"useremail": "109983@qq.com",
-		"userbirthday": "2000/0909"
-	}
-	]
-	$('#table').bootstrapTable('load',data);
-})
+
 $remove.click(function () {
 	var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
 		console.log(row);
-		return row.foodid;
+		return row.foodId;	
 	})
 	$table.bootstrapTable('remove', {
-		field: 'foodid',
+		field: 'foodId',
 		values: ids
 	})
 });

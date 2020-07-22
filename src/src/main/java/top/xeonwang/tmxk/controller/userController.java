@@ -147,7 +147,7 @@ public class userController {
 		return om.writeValueAsString(user);
 	}
 	
-	@RequestMapping("/getAlluser")
+	@RequestMapping("/getAllUser")
 	@ResponseBody
 	public String GetAllUser()
 	{

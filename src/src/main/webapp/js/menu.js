@@ -56,7 +56,7 @@ function addOne(src,foodid,name,price,type){
 
 function addToShop(foodid,name,src,price,number){
     if(confirm("是否添加的购物车")){
-        shop.addProduct(foodid,name,src,price,number);
+        shop.addProduct(foodid,name,src,price,parseInt(number));
     }
 }
 var food1={
