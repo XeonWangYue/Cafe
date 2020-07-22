@@ -27,6 +27,8 @@ public interface FoodMapper
 	public void UpdatePrice(@Param("FoodId") String FoodId,@Param("FoodPrice") double foodPrice);
 	//根据名字查找id
 	public String FindByName(@Param("FoodName") String FoodName);
+	//根据id查找库存
+	public int GetStock(@Param("FoodId") String FoodId);
 	//删除菜单
 	public void DropFood(@Param("FoodId") String FoodId);
 	//获取全部菜品

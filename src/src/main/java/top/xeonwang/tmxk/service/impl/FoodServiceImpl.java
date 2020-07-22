@@ -1,6 +1,5 @@
 package top.xeonwang.tmxk.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -93,6 +92,13 @@ public class FoodServiceImpl implements FoodService
 	{
 		// TODO Auto-generated method stub
 		return foodmapper.GetAll();
+	}
+
+	@Override
+	public int GetStock(String FoodId)
+	{
+		// TODO Auto-generated method stub
+		return foodmapper.GetStock(FoodId);
 	}
 
 }
