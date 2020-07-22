@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="top.xeonwang.tmxk.dao.OAMapper">
 	<insert id="AddOA">
 		INSERET INTO tmxk.OA(orderid,adminid,userid)
-		Values(#{OrderId},#{AdminId},#{UserId})
+		Values(#{OrderId},"admin",#{AdminId},#{UserId})
 	</insert>
 
 	<delete id="DropOA">

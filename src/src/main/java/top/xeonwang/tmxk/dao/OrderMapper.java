@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 public interface OrderMapper
 {
 	//新建订单
-	public void AddOrder(@Param("DataTime") String DataTime,@Param("OrderStatus") String OrderStatus);
+	public void AddOrder(@Param("OrderId") String OrderId);
 	
 	//更新订单状态
 	public void UpdateStatus(@Param("OrderId") String OrderId,@Param("OrderStatus") String OrderStatus);

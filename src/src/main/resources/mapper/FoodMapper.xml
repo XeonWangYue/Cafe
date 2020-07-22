@@ -37,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="UpdateStock">
 	update Food
-	SET foodstock = #{FoodStock} 
+	SET foodstock = foodstock - #{FoodStock} 
 	WHERE foodid = #{FoodId}
 	</update>
 	

@@ -3,7 +3,7 @@ package top.xeonwang.tmxk.service;
 public interface OrderService
 {
 	// 增加订单
-	public void AddOrder(String DataTime, String OrderStatus);
+	public void AddOrder(String OrderId);
 
 	// 更新订单状态
 	public void UpdateStatus(String OrderId, String OrderStatus);

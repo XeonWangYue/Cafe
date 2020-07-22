@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
+
 import top.xeonwang.tmxk.domain.Food_PerCent;
 import top.xeonwang.tmxk.domain.OrderRes;
 import top.xeonwang.tmxk.service.OAService;
@@ -34,20 +36,20 @@ public class historyController
 
 	@RequestMapping("/GetOrderInf")
 	@ResponseBody
-	public OrderRes GetOrderInf(HttpServletRequest request)
+	public String GetOrderInf(HttpServletRequest request)
 	{
-		return new OrderRes(ofuservice.GetOrder(request.getParameter("OrderId")),
+		return JSONObject.toJSONString(new OrderRes(ofuservice.GetOrder(request.getParameter("OrderId")),
 				orderservice.GetStatus(request.getParameter("OrderId")),
-				orderservice.GetTime(request.getParameter("OrderId")));		
+				orderservice.GetTime(request.getParameter("OrderId"))));		
 	}
 
 	@RequestMapping("/GetPopulor")
 	@ResponseBody
-	public ArrayList<Food_PerCent> GetPerc()
+	public String GetPerc()
 	{
 		ArrayList<Food_PerCent> f_p = ofuservice.GetPercent();
 		f_p.sort(null);
-		return f_p;
+		return JSONObject.toJSONString(f_p);
 	}
 	
 }
