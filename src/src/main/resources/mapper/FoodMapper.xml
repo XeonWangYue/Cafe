@@ -7,55 +7,60 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 根据姓名,电话查询对象 -->
 	<select id="FindByName" resultType="String">
-		SELECT Foodid	
+		SELECT Foodid
 		FROM
 		tmxk.FOOD
 		where
 		foodname = #{FoodName}
 	</select>
-	
+
 	<select id="GetAll" resultType="top.xeonwang.tmxk.domain.Food">
 		SELECT * FROM tmxk.FOOD
 	</select>
 
-	<insert id = "AddFood">
-		INSERT INTO Food(foodname,foodtype,foodstock,foodimg,foodprice,foodunit)
-		Values(#{FoodName},#{FoodType},#{FoodStock},#{FoodImg},#{FoodPrice},#{FoodUnit})	
+	<insert id="AddFood">
+		INSERT INTO
+		Food(foodname,foodtype,foodstock,foodimg,foodprice,foodunit)
+		Values(#{FoodName},#{FoodType},#{FoodStock},#{FoodImg},#{FoodPrice},#{FoodUnit})
 	</insert>
-	
+
 	<update id="UpdateName">
-	update Food
-	SET Foodname = #{FoodName} 
-	WHERE Foodid = #{FoodId}
+		update Food
+		SET Foodname = #{FoodName}
+		WHERE Foodid = #{FoodId}
 	</update>
-	
+
 	<update id="UpdateType">
-	update Food
-	SET foodtype = #{FoodType} 
-	WHERE foodid = #{FoodId}
+		update Food
+		SET foodtype = #{FoodType}
+		WHERE foodid = #{FoodId}
 	</update>
-	
+
 	<update id="UpdateStock">
-	update Food
-	SET foodstock = foodstock - #{FoodStock} 
-	WHERE foodid = #{FoodId}
+		update Food
+		SET foodstock = foodstock - #{FoodStock}
+		WHERE foodid = #{FoodId}
 	</update>
-	
+
 	<update id="UpdateUnit">
-	update Food
-	SET foodunit = #{FoodUnit} 
-	WHERE foodid = #{FoodId}
+		update Food
+		SET foodunit = #{FoodUnit}
+		WHERE foodid = #{FoodId}
 	</update>
-	
+
 	<update id="UpdateImg">
-	update Food
-	SET foodimg = #{FoodImg} 
-	WHERE foodid = #{FoodId}
+		update Food
+		SET foodimg = #{FoodImg}
+		WHERE foodid = #{FoodId}
 	</update>
-	
+
 	<delete id="DropFood">
-	DELETE FROM Food	
-	WHERE foodid = #{FoodId}
+		DELETE FROM Food
+		WHERE foodid = #{FoodId}
 	</delete>
+
+	<select id="">
+		SELECT foodstock FROM Food WHERE foodid = #{FoodId}
+	</select>
 
 </mapper>

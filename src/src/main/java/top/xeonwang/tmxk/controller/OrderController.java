@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import top.xeonwang.tmxk.domain.UserOrder;
 import top.xeonwang.tmxk.domain.UserToken;
+import top.xeonwang.tmxk.service.FoodService;
 import top.xeonwang.tmxk.service.OAService;
 import top.xeonwang.tmxk.service.OFUService;
 import top.xeonwang.tmxk.service.OrderService;
@@ -33,6 +34,8 @@ public class OrderController
 	private OFUService ofuservice;
 	@Resource
 	private OAService oaservice;
+	@Resource
+	private FoodService foodservice;
 
 	@RequestMapping("/order")
 	@ResponseBody
@@ -75,9 +78,20 @@ public class OrderController
 			ofuservice.AddOFU(OrderId, order.getFoodInf().get(i).getFoodId(),
 					order.getFoodInf().get(i).getFoodNumber());
 		
+		//修改food表信息
+		for(int i = 0;i < order.getFoodInf().size(); i++)
+		{
+			if(foodservice.GetStock(order.getFoodInf().get(i).getFoodId()) - order.getFoodInf().get(i).getFoodNumber() > 0)
+				foodservice.UpdateStore(order.getFoodInf().get(i).getFoodId(), order.getFoodInf().get(i).getFoodNumber());
+			else
+			{
+				re.put("error", "false");
+				return om.writeValueAsString(re);
+			}
+		}
+		
 		re.put("ok", "true");
 		return om.writeValueAsString(re);
 
 	}
-
 }

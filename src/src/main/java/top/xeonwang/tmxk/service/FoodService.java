@@ -1,8 +1,8 @@
 package top.xeonwang.tmxk.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import top.xeonwang.tmxk.domain.Food;
@@ -20,6 +20,8 @@ public interface FoodService
 	public void UpdatePrice(String FoodId,double FoodPrice);
 	//根据名字查找id
 	public String FindByName(String FoodName);
+	//根据id查找库存
+	public int GetStock(String FoodId);
 	//删除菜单
 	public void DropFood(String FoodId);
 	//获取全部菜单
