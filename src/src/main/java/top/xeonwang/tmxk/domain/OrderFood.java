@@ -11,8 +11,8 @@ public class OrderFood
 	public String getFoodName() {
 		return this.FoodName;
 	}
-	public void setFoodName(String id) {
-		this.FoodName = id;
+	public void setFoodName(String name) {
+		this.FoodName = name;
 	}
 	public int getFoodNumber() {
 		return this.FoodNumber;

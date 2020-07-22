@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public interface OAService
 {
 	//新建 订单-管理员-用户
-	public void AddOA(String OrderId,String AdminId,String UserId);
+	public void AddOA(String OrderId,int UserId);
 	//删除 订单-管理员-用户
 	public void DropOa(String OrderId,String AdminId,String UserId);
 	//根据用户id查找历史订单

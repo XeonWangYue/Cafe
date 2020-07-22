@@ -15,10 +15,10 @@ public class OrderServiceImpl implements OrderService
 	public OrderMapper ordermapper;
 
 	@Override
-	public void AddOrder(String DataTime, String OrderStatus)
+	public void AddOrder(String OrderId)
 	{
 		// TODO Auto-generated method stub
-		ordermapper.AddOrder(DataTime, OrderStatus);
+		ordermapper.AddOrder(OrderId);
 	}
 
 	@Override

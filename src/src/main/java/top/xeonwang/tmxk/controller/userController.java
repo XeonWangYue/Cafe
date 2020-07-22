@@ -121,11 +121,25 @@ public class userController {
 		ObjectMapper om = new ObjectMapper();
 		Cookie[] cookie=request.getCookies();
 		Map<String, Object> re = new HashMap<String, Object>();
+		int cookie_index = -1;
 		if(cookie==null) {
 			re.put("ok","false");
 			return om.writeValueAsString(re);
 		}
-		UserToken ut=Token.verify(cookie[0].getValue());
+		
+		for(int i = 0;i < cookie.length;i++)
+		{
+			if(cookie[i].getName().equals("token"))
+				cookie_index = i;
+		}
+		
+		if(cookie_index == -1)
+		{
+			re.put("ok","false");
+			return om.writeValueAsString(re);
+		}
+		
+		UserToken ut=Token.verify(cookie[cookie_index].getValue());
 
 		UserInfo user=new UserInfo(userService.getAllData(ut.getUserId()));
 		System.out.println(user.getUsername());

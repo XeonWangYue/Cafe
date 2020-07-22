@@ -17,10 +17,10 @@ public class OAServiceImpl implements OAService
 	private OAMapper oamapper;
 
 	@Override
-	public void AddOA(String OrderId, String AdminId, String UserId)
+	public void AddOA(String OrderId, int UserId)
 	{
 		// TODO Auto-generated method stub
-		oamapper.AddOA(OrderId, AdminId, UserId);
+		oamapper.AddOA(OrderId, UserId);
 	}
 
 	@Override
