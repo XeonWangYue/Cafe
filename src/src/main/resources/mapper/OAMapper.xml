@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE orderid = #{OrderId} and adminid = #{AdminId} and userid = #{UserId}
 	</delete>
 
-	<select id="GetOrderid">
+	<select id="GetOrderid" resultType="String">
 		Select orderid FROM tmxk.OA WHERE userid = #{UserId}
 	</select>
 

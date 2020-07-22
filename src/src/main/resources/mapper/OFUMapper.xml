@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{FoodNumber}
 	</delete>
 
-	<select id="GetOrder">
+	<select id="GetOrder" resultType="top.xeonwang.tmxk.domain.OrderFood">
 		SELECT foodname,foodnumber FROM (SELECT
 		foodname,foodnumber,orderid FROM
 		food,ofu WHERE food.foodid=ofu.foodid)

@@ -1,6 +1,7 @@
 package top.xeonwang.tmxk.dao;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.apache.ibatis.annotations.Param;
@@ -31,4 +32,6 @@ public interface UserMapper
 	public String CheckUserName(@Param("UserName")String UserName);
 //	获取全部信息
 	public User getAllData(@Param("UserId")Integer UserId);
+//	获取所有用户信息
+	public ArrayList<User> GetAll();
 }
