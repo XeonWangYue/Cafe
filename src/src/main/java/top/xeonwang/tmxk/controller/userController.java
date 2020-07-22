@@ -194,7 +194,7 @@ public class userController {
 		userService.UpdateBirthday(ut.getUserId(), user.getBirthday());
 		
 		re.put("ok", "true");
-		
+		return om.writeValueAsString(re);
 	}
 	
 	
