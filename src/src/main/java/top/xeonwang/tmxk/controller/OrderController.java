@@ -1,6 +1,8 @@
 package top.xeonwang.tmxk.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -11,10 +13,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONArray;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import top.xeonwang.tmxk.domain.OrderFood;
 import top.xeonwang.tmxk.domain.UserOrder;
 import top.xeonwang.tmxk.domain.UserToken;
 import top.xeonwang.tmxk.service.FoodService;
@@ -41,10 +45,11 @@ public class OrderController
 	@ResponseBody
 	public String AddOrder(HttpServletRequest request) throws JsonMappingException, JsonProcessingException
 	{
-		ObjectMapper om = new ObjectMapper();
 		String token = null;
+		ObjectMapper om = new ObjectMapper();
 		String text = myUtil.readData(request);
-		UserOrder order = om.readValue(text, UserOrder.class);	
+		List listObjectFour = JSONArray.parseArray(text,Map.class);	
+		UserOrder order = (UserOrder) listObjectFour;
 		Cookie[] cookie=request.getCookies();
 		int cookie_index = -1;
 
