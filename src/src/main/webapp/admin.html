@@ -101,26 +101,21 @@
 	<!-- //inner banner -->
 	<!--以下是点击新增，编辑出现的提示框 -->
 	<div class="container">
+		<br/><br/><br/><br/>
 		<!--以下是点击新增，编辑，删除的toolbox -->
-		<div id="toolbox">
-			<button class="btn" id="add_table_btn"><span class="glyphicon glyphicon-plus"></span> 新增</button>
-			<button class="btn" id="edit_table_btn"><span class="glyphicon glyphicon-pencil"></span> 编辑</button>
-			<button class="btn" id="delete_table_btn"><span class="glyphicon glyphicon-remove"></span> 删除</button>
-			<input type="button" class="btn" value="保存" onclick="submit()" />
+		<div id="toolbar">
+			<button id="remove" class="btn btn-danger">删除</button>
+			<button id="insert" class="btn btn-secondary">新增</button>
+			<button id="update" class="btn btn-dark">更新</button>
 		</div>
 
-		<table id="table" class="table table-bordered"></table>
+		<table id="table" class="table"></table>
 	</div>
-	<style>
-		.table {
-			table-layout: fixed;
-			word-break: break-all;
-		}
-	</style>
 
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/jquery.cookie.js"></script>
 	<script src="js/bootstrap-table.min.js"></script>
+	<script src="js/bootstrap-table-zh-CN.min.js"></script>
 	<!-- Default-JavaScript-File -->
 	<script src="js/bootstrap.js"></script>
 	<!-- Necessary-JavaScript-File-For-Bootstrap -->
