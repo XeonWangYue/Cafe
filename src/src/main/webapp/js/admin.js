@@ -33,6 +33,7 @@ $('#table').bootstrapTable({
 			title: '用户id',
 			width: 50,
 			field: 'userid',
+			visible: false
 		},
 		{
 			title: '用户姓名',
@@ -73,38 +74,12 @@ $('#table').bootstrapTable({
 		})
 	},
 });
+
 var $table = $('#table');
 var $update = $('#update');
 var $remove = $('#remove');
 var $insert = $('#insert');
-var $test = $('#test');
-$test.click(function(){
-	var data = [];
-	var res = $table.bootstrapTable('getData');
-	var json = JSON.stringify(res);
-	alert(json);
-	data = [
-		{
-		"userid": 1,
-		"username": "小红",
-		"userpwd": "19",
-		"usergender": 0,
-		"userphone": "1567865475",
-		"useremail": "109983@qq.com",
-		"userbirthday": "2000/0909"
-	},
-	{
-		"userid": 1,
-		"username": "小明",
-		"userpwd": "19",
-		"usergender": 0,
-		"userphone": "1567865475",
-		"useremail": "109983@qq.com",
-		"userbirthday": "2000/0909"
-	}
-	]
-	$('#table').bootstrapTable('load',data);
-})
+
 $remove.click(function () {
 	var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
 		console.log(row);
@@ -115,6 +90,7 @@ $remove.click(function () {
 		values: ids
 	})
 });
+
 $update.click(function () {
 	alert(JSON.stringify($table.bootstrapTable('getData')));
 	var res = $table.bootstrapTable('getData');

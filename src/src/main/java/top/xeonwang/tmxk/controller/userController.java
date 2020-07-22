@@ -145,4 +145,5 @@ public class userController {
 		System.out.println(user.getUsername());
 		return om.writeValueAsString(user);
 	}
+
 }
