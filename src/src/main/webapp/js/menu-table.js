@@ -3,13 +3,13 @@ var op = '<a href="javascript:void(0) onclick="delRow();">删除</a> ' +
 	'<a href="javascript:void(0) onclick="delRow();">编辑</a>'
 data = [
 	{
-		"userid": 1,
-		"username": "玛利亚凯莉",
-		"userpwd": "19",
-		"usergender": 0,
-		"userphone": "1567865475",
-		"useremail": "109983@qq.com",
-		"userbirthday": "2000/0909"
+		"foodid": 1,
+		"foodname": "玛利亚凯莉",
+		"foodtype": "19",
+		"foodstock": 0,
+		"foodunit": "1567865475",
+		"foodprice": "109983@qq.com",
+		"foodimg": "2000/0909"
 	},
 	{
 		"userid": 1,
@@ -69,37 +69,37 @@ $('#table').bootstrapTable({
 			checkbox: true
 		},
 		{
-			title: '用户id',
-			width: 50,
-			field: 'userid',
+			title: '食物代号',
+			width: 70,
+			field: 'foodid',
 		},
 		{
-			title: '用户姓名',
+			title: '食物名称',
 			width: 110,
-			field: 'username',
+			field: 'foodname',
 		},
 		{
-			title: '密码',
+			title: '食物类型',
 			width: 100,
-			field: 'userpwd',
+			field: 'foodtype',
 		},{
-			title: '联系电话',
+			title: '库存量',
 			width: 100,
-			field: 'userphone'
+			field: 'foodstock'
 		},{
-			title: '用户生日',
+			title: '单位',
 			width: 100,
-			field: 'userbirthday'
+			field: 'foodunit'
 		},
 		{
-			title: '性别',
-			field: 'usergender',
+			title: '食物价格',
+			field: 'foodprice',
 			width: 30,
-			formatter: formatSex
+			
 		}, {
-			title: '用户邮箱',
+			title: '食物图片路径',
 			width: 100,
-			field: 'useremail'
+			field: 'foodimg'
 		}
 	],
 	onClickCell: function (field, value, row, $element) {
@@ -147,10 +147,10 @@ $test.click(function(){
 $remove.click(function () {
 	var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
 		console.log(row);
-		return row.userid;
+		return row.foodid;
 	})
 	$table.bootstrapTable('remove', {
-		field: 'userid',
+		field: 'foodid',
 		values: ids
 	})
 });
@@ -193,9 +193,4 @@ function saveData(index, field, value) {
 		field: field,       //列名
 		value: value       //cell值
 	})
-}
-
-// 格式化性别"sex": 0,是男  "sex": 1,是女
-function formatSex(value, row, index) {
-		return value == 0 ? "男" : (value==1 ? "女" : "");
 }
