@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AS A WHERE orderid=#{OrderId}
 	</select>
 
-	<select id="GetPercent" resultType="top.xeonwang.tmxk.domain.Food_Percent">
+	<select id="GetPercent" resultType="top.xeonwang.tmxk.domain.Food_PerCent">
 		SELECT foodname,SUM(foodnumber)/(SELECT SUM(foodnumber) FROM ofu)*100 AS
 		Percent FROM (SELECT foodname,foodnumber,orderid FROM tmxk.food,tmxk.ofu WHERE
 		food.foodid=ofu.foodid) AS A GROUP BY foodname

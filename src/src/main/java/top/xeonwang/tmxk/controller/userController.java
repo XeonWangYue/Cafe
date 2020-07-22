@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -145,4 +146,13 @@ public class userController {
 		System.out.println(user.getUsername());
 		return om.writeValueAsString(user);
 	}
+	
+	@RequestMapping("/getAlluser")
+	@ResponseBody
+	public String GetAllUser()
+	{
+		return JSONObject.toJSONString(userService.GetAll());
+	}
+	
+	
 }
