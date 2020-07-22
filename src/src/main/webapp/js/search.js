@@ -18,7 +18,7 @@ data = [
 ]
 function test()
 		{
-			var ht = '';
+			var ht = '';//笨方法把json转化为数据，没有用到bootstrapTable的架构
 			ht = ht+'<tr><th>订单编号</th><th>生成日期</th><th>订单状态</th></tr>';
   			for(var i=0;i<data.length;i++){//循环json对象，拼接tr,td的html
 				
