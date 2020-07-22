@@ -21,11 +21,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE orderid = #{OrderId}
 	</delete>
 
-	<select id="GetStutas">
+	<select id="GetStutas" resultType="String">
 		SELECT orderstatus FROM txmk.ORDERINF WHERE orderid = #{OrderId}
 	</select>
 
-	<select id="GetTime">
+	<select id="GetTime" resultType="String">
 		SELECT ordertime FROM txmk.ORDERINF WHERE orderid = #{OrderId}
 	</select>
 
