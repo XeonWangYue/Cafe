@@ -13,4 +13,10 @@ public interface OrderMapper
 	
 	//删除订单
 	public void DropOrder(@Param("OrderId") String OrderId);
+	
+	//获取订单状态
+	public String GetStatus(@Param("OrderId") String OrderId);
+	
+	//获取订单时间
+	public String GetTime(@Param("OrderId") String OrderId);
 }

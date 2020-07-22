@@ -1,59 +1,75 @@
 var imgURL;//用于传输图片的地址
-/*
- * 图片上传
- */
-$("#uploadImage").fileinput({
-    'language':"zh",
-    'previewFileType':'image',
-    'allowedFileTypes':['image'],
-    'allowedFileExtensions':['jpg','jpeg','png'],//接收的数据类型
-    'uploadAsync': true, //默认异步上传
-    'showUpload':true,//是否显示上传按钮
-    'showRemove':true,//显示移除按钮
-    'showPreview' :true, //是否显示预览
-    'browseClass':"btn btn-info", //按钮样式   
-    'dropZoneEnabled':true,
-    'uploadUrl': "file:///D:/Code/Java%20Project/mod/moban4633/index.html", // 后台url需要改，现在网页测试上传图片会报错应该和这里有关
-    'minFileCount': 1,
-    'maxFileCount': 1,
-    'maxFileSize': 5000,
-    'autoReplace':true
-}).on('fileuploaded', function(event, data) {
-    var response = data.response;  
-    alert(response.msg);
-    if ( response.result == 'ok') {
-        imgURL = response.imgURL;
-        //document.getElementById("img").value = response.url;
-    }
-    
-}).on("filebatchselected", function() {
-    $(this).fileinput("upload");
-});
+var imgUploadSuccess=false;
+var imgName;
+function initFileInput(ctrlName,uploadUrl,removeUrl){
+    var control=$("#"+ctrlName);
+    control.fileinput({
+        'language': 'zh',
+        'theme' : 'fa',
+        'previewFileType': 'image',
+        'allowedFileTypes': ['image'],
+        'allowedFileExtensions': ['jpg', 'jpeg', 'png'],//接收的数据类型
+        'replaceFileInput':false,
+        'uploadUrl' : uploadUrl,
+        'deleteUrl' : removeUrl,
+        'uploadAsync': false, //默认异步上传
+        'showUpload': true,//是否显示上传按钮
+        'showRemove': true,//显示移除按钮
+        'showPreview': true, //是否显示预览
+        'browseClass': "btn btn-info", //按钮样式   
+        'dropZoneEnabled': true,
+        'minFileCount': 1,
+        'maxFileCount': 1,
+        'maxFileSize': 5000,
+    }).on("filebatchselected", function (event, data) {//选择即上传
+        if (data.length == 0) {
+            return;
+        }
+    }).on('fileuploaded', function (event, data) {//异步上传成功结果处理
+        console.log(event, data);
+    }).on('fileerror', function (event, data, msg) {//异步上传失败结果处理
+        console.log(event, data, msg);
+    }).on('fileuploaderror', function (event, data, msg) {//异步上传失败结果处理
+        console.log(event, data, msg);
+    }).on('filebatchuploadsuccess', function(event,data,previewId,index) {//同步上传回调
+        imgName=data.response.name;
+    });
+};
 /*
  * 发布商品（提交表单）
  */
-function publish(){
-	alert(imgURL);
+$(document).ready(function(){
+    initFileInput("uploadImage","uploadPic.action","removePic.action");
+    // var date = new Date();
+    // date.setTime(date.getTime()+1000*60*15-10*1000);
+	// $.cookie('token',"token",{
+	// 	expires:date,
+	// 	path:'/'
+	// });
+});
+
+function addMenu() {
     $.ajax({
-        //              url:"http://localhost:8080/SecondDemo/user/getSession",
-        url:"http://"+window.location.host+"/SecondDemo/goods/publish",//蠢办法获取当前的URL
-        type:"POST",  
-        dataType:"text",
-        data:{
-        	"goods_name":$("#goods_name").val(),
-        	"goods_type":$("#goods_type").val(),
-        	"goods_stock":$("#goods_stock").val(),
-        	"goods_price":$("#goods_price").val(),
-			"goods_unit":$("#goods_unit").val(),
-        	"goods_image":imgURL,
-        },
-        success:function(data){
-            if(data.message=="OK")
+        url: "addMenuList.action",
+        type: "POST",
+        contentType: "text/json,charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify({
+            "foodname": $("#goods_name").val(),
+            "foodtype": $("#goods_type").val(),
+            "foodstock": $("#goods_stock").val(),
+            "foodprice": $("#goods_price").val(),
+            "foodunit": $("#goods_unit").val(),
+            "foodimg" : encodeURI(imgName),
+        }),
+        success: function (data) {
+            if (data.ok == "true")
                 alert("上传成功！");
+            else
+                alert("菜品重复！上传失败");
         },
-        error : function(e) {
-            alert("出错");
-            alert(e.responseText);                
+        error: function (e) {
+            alert(e.responseText);
         },
     })
 }

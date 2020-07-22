@@ -4,20 +4,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="top.xeonwang.tmxk.dao.OrderMapper">
-	<insert id = "AddOrder">
-		INSERET INTO ORDERINF(orderid,ordertime,orderstatus)
-		Values(#{OrderId},#{OrderTime},#{OrderStatus})	
+	<insert id="AddOrder">
+		INSERET INTO
+		tmxk.ORDERINF(orderid,ordertime,orderstatus)
+		Values(#{OrderId},#{OrderTime},#{OrderStatus})
 	</insert>
-	
+
 	<update id="UpdateStatus">
-		update ORDERINF
-		SET orderstatus = #{OrderStatus} 
+		update tmxk.ORDERINF
+		SET orderstatus = #{OrderStatus}
 		WHERE orderid = #{OrderId}
-	</update>	
-	
+	</update>
+
 	<delete id="Droporder">
-		DELETE FROM ORDERINF
+		DELETE FROM tmxk.ORDERINF
 		WHERE orderid = #{OrderId}
 	</delete>
+
+	<select id="GetStutas">
+		SELECT orderstatus FROM txmk.ORDERINF WHERE orderid = #{OrderId}
+	</select>
+
+	<select id="GetTime">
+		SELECT ordertime FROM txmk.ORDERINF WHERE orderid = #{OrderId}
+	</select>
 
 </mapper>

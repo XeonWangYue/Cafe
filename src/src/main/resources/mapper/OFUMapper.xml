@@ -4,14 +4,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="top.xeonwang.tmxk.dao.OFUMapper">
-	<insert id = "AddOFU">
+	<insert id="AddOFU">
 		INSERET INTO OFU(orderid,foodid,foodnumber)
-		Values(#{OrderId},#{FoodId},#{FoodNumber})	
+		Values(#{OrderId},#{FoodId},#{FoodNumber})
 	</insert>
-	
+
 	<delete id="DropOA">
-	DELETE FROM OFU	
-	WHERE orderid = #{OrderId} and foodid = #{FoodId} and foodnumber = #{FoodNumber}
+		DELETE FROM OFU
+		WHERE orderid = #{OrderId} and foodid
+		= #{FoodId} and foodnumber =
+		#{FoodNumber}
 	</delete>
+
+	<select id="GetOrder">
+		SELECT foodname,foodnumber FROM (SELECT
+		foodname,foodnumber,orderid FROM
+		food,ofu WHERE food.foodid=ofu.foodid)
+		AS A WHERE orderid=#{OrderId}
+	</select>
+
+	<select id="GetPercent">
+		SELECT foodname,SUM(foodnumber)/(SELECT SUM(foodnumber) FROM ofu)*100 AS
+		Percent FROM (SELECT foodname,foodnumber,orderid FROM tmxk.food,tmxk.ofu WHERE
+		food.foodid=ofu.foodid) AS A GROUP BY foodname
+	</select>
 
 </mapper>

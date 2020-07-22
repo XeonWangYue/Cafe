@@ -22,6 +22,7 @@
 
 	<!-- Custom-Files -->
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/contact.css">
 	<!-- Bootstrap-Core-CSS -->
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 	<!-- Style-CSS -->
@@ -109,56 +110,27 @@
 
 	<!-- contact -->
 	<div class="contact py-5" id="head">
-		<div class="container py-xl-5 py-lg-3">
+		<div class="container">
 			<h5 class="tittle-w3 text-dark text-center mb-5">个人信息页</h5>
-			<div class="row contact-us1-bottom">
-				<div class="col-lg-6">
-					<form action="#" method="post">
-						<div class="form-group">
-							<input type="call" placeholder="用户名" name="name" class="form-control" required="">
-						</div>
-						<div class="form-group">
-							<input type="call" placeholder="邮箱" name="email" class="form-control" required="">
-						</div>
-						<div class="form-group">
-							<input type="call" placeholder="联系方式" name="call" class="form-control" required="">
-						</div>
-						<div class="form-group">
-							<input type="date" placeholder="出生年月" name="date" class="form-control" data-language="en" required="" class="datepicker-here">
-						</div>
-						
-						
-						
-					</form>
-				</div>
-				<div class="col-lg-6 mt-lg-0 mt-5">
-					<div class="row">
-						<div class="col-4 home-radio-clock">
-							<ul class="list-unstyled">
-								<li>
-									<i class="fas fa-home mr-3"></i>地址</li>
-								<li class="my-5">
-									<i class="fas fa-phone mr-3"></i>联系电话</li>
-								
-							</ul>
-						</div>
-						<div class="col-8 home-radio-clock-right">
-							<ul class="list-unstyled">
-								<li><div class="form-group">
-							<input type="call" placeholder="地址" name="address" class="form-control" required="">
-						</div>
-								</li>
-								<li class="my-4">
-									<div class="form-group">
-							<input type="call" placeholder="地址" name="address" class="form-control" required="">
-						</div>
-								</li>
-								<input type="submit" value="提交">
-								
-							</ul>
-						</div>
+			<div class="columns contact-us1-bottom col-md-offset-4">
+				<form action="#" role="form" method="post" class="formClass">
+					<div class="form-group">
+						<lable class="lb">我的昵称:&nbsp;&nbsp;&nbsp;&nbsp;</lable><input type="text" placeholder="用户名" id="name" name="name" class="form-control" >
 					</div>
-				</div>
+					<div class="form-group">
+						<lable class="lb">我的邮箱:&nbsp;&nbsp;&nbsp;&nbsp;</lable><input type="email" placeholder="邮箱" name="email" class="form-control" >
+					</div>
+					<div class="form-group">
+						<lable class="lb">我的电话:&nbsp;&nbsp;&nbsp;&nbsp;</lable><input type="call" placeholder="联系方式" name="call" class="form-control" >
+					</div>
+					<div class="form-group">
+						<lable class="lb">我的性别:&nbsp;&nbsp;&nbsp;&nbsp;</lable><input type="text" placeholder="性别" name="gender" class="form-control" >
+					</div>
+					<div class="form-group">
+						<lable class="lb">我的生日:&nbsp;&nbsp;&nbsp;&nbsp;</lable><input type="date" placeholder="出生年月" name="date" class="form-control" data-language="en" required="" class="datepicker-here">
+					</div>
+					<div><input type="submit" value="保存"></div>	
+				</form>
 			</div>
 		</div>
 	</div>

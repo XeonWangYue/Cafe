@@ -17,9 +17,9 @@
 	<!-- 注解驱动 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
 	
-	<mvc:resources location="/js/" mapping="/js/*"></mvc:resources>
-	<mvc:resources location="/css/" mapping="/css/*"></mvc:resources>
-	<mvc:resources location="/images/" mapping="/images/*"></mvc:resources>
+	 <mvc:resources location="/images/" mapping="/images/**"/>   
+	 <mvc:resources location="/js/" mapping="/js/**"/>    
+	 <mvc:resources location="/css/" mapping="/css/**"/>  
 	<!-- 视图解析器:简化在Controller类编写的视图路径 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 前缀 -->
@@ -27,5 +27,4 @@
 		<!-- 后缀 -->
 		<property name="suffix" value=".html"/>
 	</bean>
-
 </beans>

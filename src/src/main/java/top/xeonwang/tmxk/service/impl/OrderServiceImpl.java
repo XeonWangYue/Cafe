@@ -34,4 +34,18 @@ public class OrderServiceImpl implements OrderService
 		// TODO Auto-generated method stub
 		ordermapper.DropOrder(OrderId);
 	}
+
+	@Override
+	public String GetStatus(String OrderId)
+	{
+		// TODO Auto-generated method stub
+		return ordermapper.GetStatus(OrderId);
+	}
+
+	@Override
+	public String GetTime(String OrderId)
+	{
+		// TODO Auto-generated method stub
+		return ordermapper.GetTime(OrderId);
+	}
 }

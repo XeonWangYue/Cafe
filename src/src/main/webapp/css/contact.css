@@ -1,0 +1,9 @@
+.formClass {
+    text-align: center;
+}
+input{
+    margin: 0 auto;
+}
+.form-control{
+    display: inline;
+}

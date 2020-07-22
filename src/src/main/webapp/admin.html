@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="zxx">
+
 <head>
 	<title>管理员界面</title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8" />
-	<meta name="keywords" content=""
-	/>
+	<meta name="keywords" content="" />
 	<script>
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
@@ -16,8 +16,8 @@
 			window.scrollTo(0, 1);
 		}
 	</script>
-	
-	
+
+
 	<!--// Meta tag Keywords -->
 
 	<!-- Custom-Files -->
@@ -39,6 +39,7 @@
 	<!-- //Web-Fonts -->
 
 </head>
+
 <body>
 	<!-- header -->
 	<div class="header">
@@ -51,8 +52,8 @@
 				</a>
 			</h1>
 			<!-- //logo -->
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-			    aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -63,9 +64,9 @@
 						</a>
 					</li>
 					<li class="nav-item dropdown mr-lg-4">
-						
+
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							
+
 						</div>
 					</li>
 					<li class="nav-item mx-lg-4  active">
@@ -98,68 +99,23 @@
 	</nav>
 	<!-- breadcrumb -->
 	<!-- //inner banner -->
-		<!--以下是点击新增，编辑出现的提示框 -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
- 		<div class="modal-dialog" role="document">
- 		<div class="modal-content">
- 		<div class="modal-header">
-  		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  		<h4 class="modal-title" id="myModalLabel">新增</h4>
- 		</div>
- 		<div class="modal-body">
-  		<div class="form-group">
-  		<label for="UserID">用户id</label>
- 		 <input type="text" name="UserID" class="form-control" id="UserID" placeholder="用户id">
-  		</div>
-  		<div class="form-group">
-  		<label for="UserName">用户姓名</label>
-  		<input type="text" name="UserName" class="form-control" id="UserName" placeholder="用户姓名">
-  		</div>
-  		<div class="form-group">
-  		<label for="UserPwd">用户密码</label>
-  		<input type="text" name="UserPwd" class="form-control" id="UserPwd" placeholder="用户密码">
- 		 </div>
-  		<div class="form-group">
- 		 <label for="UserSex">用户性别</label>
- 		 <input type="text" name="UserSex" class="form-control" id="UserSex" placeholder="用户性别">
- 		 </div>
-		<div class="form-group">
- 		 <label for="UserPhone">联系电话</label>
- 		 <input type="text" name="UserPhone" class="form-control" id="UserPhone" placeholder="联系电话">
- 		 </div>
-		<div class="form-group">
- 		 <label for="UserEmail">用户邮箱</label>
- 		 <input type="text" name="UserEmail" class="form-control" id="UserEmail" placeholder="用户邮箱">
- 		 </div>
- 		</div>
- 		<div class="modal-footer">
- 		 <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭 </button>
-  		<button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true" onClick="save()" ></span>保存</button>
- 		</div>
- 		</div>
- 		</div>
-		</div>
+	<!--以下是点击新增，编辑出现的提示框 -->
+	<div class="container">
+		<br/><br/><br/><br/>
 		<!--以下是点击新增，编辑，删除的toolbox -->
-		<div id="toolbox">
-		 <button class="btn" id="add_table_btn"><span class="glyphicon glyphicon-plus"></span> 新增</button>
-		<button class="btn" id="edit_table_btn"><span class="glyphicon glyphicon-pencil"></span> 编辑</button>
-        <button class="btn" id="delete_table_btn"><span class="glyphicon glyphicon-remove"></span> 删除</button>
-		<input type="button" class="btn" value="保存" onclick="submit()"/>
+		<div id="toolbar">
+			<button id="remove" class="btn btn-danger">删除</button>
+			<button id="insert" class="btn btn-secondary">新增</button>
+			<button id="update" class="btn btn-dark">更新</button>
 		</div>
-		<div class="container">
-		<table id="table" class="table table-bordered"></table>
-			</div>
-		<style>
-		.table
-		{
-			table-layout:fixed;
-			word-break:break-all;
-		}
-		</style>
-		
+
+		<table id="table" class="table"></table>
+	</div>
+
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<script src="js/jquery.cookie.js"></script>
 	<script src="js/bootstrap-table.min.js"></script>
+	<script src="js/bootstrap-table-zh-CN.min.js"></script>
 	<!-- Default-JavaScript-File -->
 	<script src="js/bootstrap.js"></script>
 	<!-- Necessary-JavaScript-File-For-Bootstrap -->
@@ -177,93 +133,94 @@
 	<script src="js/logout.js"></script>
 	<script src="js/contact.js"></script>
 	<script src="js/admin.js"></script>
-	</body>
-	<!-- footer -->
-	<footer>
-		<div class="w3ls-footer-grids py-5">
-			<div class="container py-lg-2">
-				<div class="row">
-					<div class="col-lg-3 col-sm-6 w3l-footer one">
-						<h2 class="index.html mb-3">Coff-ood</h2>
-						<p>生活应该如此，像咖啡一样，累积沉淀，快速反应，延续热情...</p>
-						<div class="clearfix"></div>
-					</div>
-					<div class="col-lg-2 col-sm-6 w3l-footer agileinfo_footer_grid my-sm-0 my-4">
-						<h3 class="mb-3">Navigation</h3>
-						<div class="nav-w3-l">
-							<ul class="list-unstyled">
-								<li class="mb-2">
-									<a href="index.html">主页</a>
-								</li>
-								<li class="mb-2">
-									<a href="about.html" class="">关于我们</a>
-								</li>
-								<li class="mb-2">
-									<a href="menu.html" class="">菜单</a>
-								</li>
-								<li class="mb-2">
-									<a href="gallery.html" class="">展廊</a>
-								</li>
-								<li class="mb-2">
-									<a href="contact.html" class="">个人信息</a>
-								</li>
-								<li class="mb-2">
-									<a href="order.html" class="">订单</a>
-								</li>
-								<li class="mb-2">
-									<a href="Signup.html" class="">注册</a>
-								</li>
-								<li>
-									<a href="Signin.html" class="">登陆</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-3 col-sm-6 w3l-footer two mt-lg-0 mt-sm-5">
-						<h3 class="mb-3">Connect With</h3>
+</body>
+<!-- footer -->
+<footer>
+	<div class="w3ls-footer-grids py-5">
+		<div class="container py-lg-2">
+			<div class="row">
+				<div class="col-lg-3 col-sm-6 w3l-footer one">
+					<h2 class="index.html mb-3">Coff-ood</h2>
+					<p>生活应该如此，像咖啡一样，累积沉淀，快速反应，延续热情...</p>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-lg-2 col-sm-6 w3l-footer agileinfo_footer_grid my-sm-0 my-4">
+					<h3 class="mb-3">Navigation</h3>
+					<div class="nav-w3-l">
 						<ul class="list-unstyled">
-							<li class="mb-3">
-								<a class="fb" href="#">
-									<i class="fab fa-facebook-f"></i>Like us on Facebook</a>
+							<li class="mb-2">
+								<a href="index.html">主页</a>
 							</li>
-							<li class="mb-3">
-								<a class="fb1" href="#">
-									<i class="fab fa-twitter"></i>Follow us on Twitter</a>
+							<li class="mb-2">
+								<a href="about.html" class="">关于我们</a>
 							</li>
-							<li class="mb-3">
-								<a class="fb2" href="#">
-									<i class="fab fa-google-plus-g"></i>Add us on Google Plus</a>
+							<li class="mb-2">
+								<a href="menu.html" class="">菜单</a>
 							</li>
-							<li>
-								<a class="fb3" href="#">
-									<i class="fab fa-dribbble"></i>Follow us on Dribbble</a>
+							<li class="mb-2">
+								<a href="gallery.html" class="">展廊</a>
 							</li>
-						</ul>
-					</div>
-					<div class="col-lg-4 col-sm-6 w3l-footer three mt-lg-0 mt-4">
-						<h3 class="mb-3">Address</h3>
-						<ul class="list-unstyled">
-							<li>
-								<i class="fas fa-map-marker"></i>
-								<p>福建省厦门市思明区
-									厦大学生公寓</p>
-								<div class="clearfix"></div>
+							<li class="mb-2">
+								<a href="contact.html" class="">个人信息</a>
 							</li>
-							<li class="my-2">
-								<i class="fas fa-phone"></i>
-								<p>1234567890</p>
-								<div class="clearfix"></div>
+							<li class="mb-2">
+								<a href="order.html" class="">订单</a>
+							</li>
+							<li class="mb-2">
+								<a href="Signup.html" class="">注册</a>
 							</li>
 							<li>
-								<i class="fas fa-envelope"></i>
-								<a href="mailto:info@example.com">mail@stu.xmu.edu.cn</a>
-								<div class="clearfix"></div>
+								<a href="Signin.html" class="">登陆</a>
 							</li>
 						</ul>
 					</div>
 				</div>
+				<div class="col-lg-3 col-sm-6 w3l-footer two mt-lg-0 mt-sm-5">
+					<h3 class="mb-3">Connect With</h3>
+					<ul class="list-unstyled">
+						<li class="mb-3">
+							<a class="fb" href="#">
+								<i class="fab fa-facebook-f"></i>Like us on Facebook</a>
+						</li>
+						<li class="mb-3">
+							<a class="fb1" href="#">
+								<i class="fab fa-twitter"></i>Follow us on Twitter</a>
+						</li>
+						<li class="mb-3">
+							<a class="fb2" href="#">
+								<i class="fab fa-google-plus-g"></i>Add us on Google Plus</a>
+						</li>
+						<li>
+							<a class="fb3" href="#">
+								<i class="fab fa-dribbble"></i>Follow us on Dribbble</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-lg-4 col-sm-6 w3l-footer three mt-lg-0 mt-4">
+					<h3 class="mb-3">Address</h3>
+					<ul class="list-unstyled">
+						<li>
+							<i class="fas fa-map-marker"></i>
+							<p>福建省厦门市思明区
+								厦大学生公寓</p>
+							<div class="clearfix"></div>
+						</li>
+						<li class="my-2">
+							<i class="fas fa-phone"></i>
+							<p>1234567890</p>
+							<div class="clearfix"></div>
+						</li>
+						<li>
+							<i class="fas fa-envelope"></i>
+							<a href="mailto:info@example.com">mail@stu.xmu.edu.cn</a>
+							<div class="clearfix"></div>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</footer>
-	<!-- //footer -->
+	</div>
+</footer>
+<!-- //footer -->
+
 </html>

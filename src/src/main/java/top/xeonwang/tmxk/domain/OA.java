@@ -1,7 +1,10 @@
 package top.xeonwang.tmxk.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class OA
 {
+	@JsonProperty("orderid")
 	private String OrderId;
 	private String UserId;
 	private String AdminId;

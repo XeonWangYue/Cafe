@@ -14,13 +14,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		foodname = #{FoodName}
 	</select>
 	
-	<select id="GetAll" resultType="String">
+	<select id="GetAll" resultType="top.xeonwang.tmxk.domain.Food">
 		SELECT * FROM tmxk.FOOD
 	</select>
 
 	<insert id = "AddFood">
-		INSERET INTO Food(foodid,foodname,foodtype,foodstore,foodimg,foodprice)
-		Values(#{FoodId},#{FoodName},#{FoodType},#{FoodStore},#{FoodImg},#{FoodPrice})	
+		INSERT INTO Food(foodname,foodtype,foodstock,foodimg,foodprice,foodunit)
+		Values(#{FoodName},#{FoodType},#{FoodStock},#{FoodImg},#{FoodPrice},#{FoodUnit})	
 	</insert>
 	
 	<update id="UpdateName">

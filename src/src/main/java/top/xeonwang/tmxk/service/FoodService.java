@@ -1,6 +1,7 @@
 package top.xeonwang.tmxk.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,7 @@ import top.xeonwang.tmxk.domain.Food;
 public interface FoodService
 {
 	//增加菜单
-	public void AddFood(String FoodId,String FoodName,String FoodType,long FoodStore,String FoodUnit,String FoodImg,double FoodPrice);
+	public boolean AddFood(String FoodName,String FoodType,long FoodStock,String FoodUnit,String FoodImg,double FoodPrice);
 	//修改菜单
 	public void UpdateName(String FoodId,String FoodName);
 	public void UpdateType(String FoodId,String FoodType);
@@ -22,5 +23,5 @@ public interface FoodService
 	//删除菜单
 	public void DropFood(String FoodId);
 	//获取全部菜单
-	public ArrayList<Food> GetAll();
+	public List<Food> GetAll();
 }

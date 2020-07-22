@@ -15,3 +15,4 @@ $(document).ready(function checkToken(){
 		document.getElementById("btnSignout").hidden=true;
 	}
 });
+

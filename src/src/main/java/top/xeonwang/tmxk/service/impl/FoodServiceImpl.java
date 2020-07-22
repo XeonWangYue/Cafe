@@ -1,6 +1,7 @@
 package top.xeonwang.tmxk.service.impl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -19,10 +20,16 @@ public class FoodServiceImpl implements FoodService
 	private FoodMapper foodmapper;
 	
 	@Override
-	public void AddFood(String FoodId,String FoodName, String FoodType, long FoodStore, String FoodUnit, String FoodImg,double FoodPrice)
+	public boolean AddFood(String FoodName, String FoodType, long FoodStock, String FoodUnit, String FoodImg,double FoodPrice)
 	{
-		// TODO Auto-generated method stub
-		foodmapper.AddFood(FoodId,FoodName, FoodType, FoodStore, FoodUnit, FoodImg,FoodPrice);
+		if(foodmapper.FindByName(FoodName)==null) {
+			foodmapper.AddFood(FoodName, FoodType, FoodStock, FoodUnit, FoodImg,FoodPrice);
+			return true;
+		}
+		else {
+			return false;
+		}
+
 	}
 
 	@Override
@@ -82,7 +89,7 @@ public class FoodServiceImpl implements FoodService
 	}
 
 	@Override
-	public ArrayList<Food> GetAll()
+	public List<Food> GetAll()
 	{
 		// TODO Auto-generated method stub
 		return foodmapper.GetAll();

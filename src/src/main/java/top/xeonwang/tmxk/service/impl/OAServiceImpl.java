@@ -1,5 +1,7 @@
 package top.xeonwang.tmxk.service.impl;
 
+import java.util.ArrayList;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -26,6 +28,13 @@ public class OAServiceImpl implements OAService
 	{
 		// TODO Auto-generated method stub
 		oamapper.DropOa(OrderId, AdminId, UserId);
+	}
+
+	@Override
+	public ArrayList<String> GetHistory(String UserId)
+	{
+		// TODO Auto-generated method stub
+		return oamapper.GetHistory(UserId);
 	}
 	
 	

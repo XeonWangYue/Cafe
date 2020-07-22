@@ -1,13 +1,21 @@
 package top.xeonwang.tmxk.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Food
 {
 	private String FoodId;
+	@JsonProperty("foodname")
 	private String FoodName;
+	@JsonProperty("foodtype")
 	private String FoodType;
+	@JsonProperty("foodstock")
 	private long FoodStock;
+	@JsonProperty("foodunit")
 	private String FoodUnit;
+	@JsonProperty("foodimg")
 	private String FoodImg;
+	@JsonProperty("foodprice")
 	private double FoodPrice;
 
 	public String getFoodId()
