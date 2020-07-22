@@ -44,32 +44,32 @@ public class UserServiceImpl implements UserService
 		return usermapper.FindByName_Phone(UserName, UserPhone);		
 	}
 
-	public void DropUser(String UserId)
+	public void DropUser(int UserId)
 	{
 		usermapper.DropUser(UserId);
 	}
 
-	public void UpdateName(String UserId, String UserName)
+	public void UpdateName(int UserId, String UserName)
 	{
 		usermapper.UpdateName(UserId,UserName);
 	}
 
-	public void UpdatePwd(String UserId, String UserPwd)
+	public void UpdatePwd(int UserId, String UserPwd)
 	{
 		usermapper.UpdatePwd(UserId, UserPwd);
 	}
 
-	public void UpdatePhone(String UserId, String UserPhone)
+	public void UpdatePhone(int UserId, String UserPhone)
 	{
 		usermapper.UpdatePhone(UserId, UserPhone);
 	}
 
-	public void UpdateSex(String UserId, String UserSex)
+	public void UpdateSex(int UserId, String UserSex)
 	{
 		usermapper.UpdateSex(UserId, UserSex);
 	}
 
-	public void UpdateEmail(String UserId, String UserEmail)
+	public void UpdateEmail(int UserId, String UserEmail)
 	{
 		usermapper.UpdateEmail(UserId, UserEmail);
 	}
@@ -82,7 +82,7 @@ public class UserServiceImpl implements UserService
 	{
 		return usermapper.CheckUserName(UserName);
 	}
-	public User getAllData(Integer UserId) 
+	public User getAllData(int UserId) 
 	{
 		return usermapper.getAllData(UserId);
 	}
@@ -93,4 +93,12 @@ public class UserServiceImpl implements UserService
 		// TODO Auto-generated method stub
 		return usermapper.GetAll();
 	}
+
+	@Override
+	public void UpdateBirthday(int UserId, String UserBirthday)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 }
