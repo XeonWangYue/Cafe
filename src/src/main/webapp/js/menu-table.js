@@ -75,11 +75,9 @@ $remove.click(function () {
 	})
 });
 $update.click(function () {
-	alert(JSON.stringify($table.bootstrapTable('getData')));
-	var res = $table.bootstrapTable('getData');
-	var newjson = JSON.stringify(res);
+	var newjson = JSON.stringify(change);
 	$.ajax({
-		url:'updateUser.action',
+		url:'updateFoode.action',
 		type:'POST',
 		contentType:"json",
 		dataType:"json",
@@ -96,21 +94,32 @@ $insert.click(function () {
 	$table.bootstrapTable('insertRow', {
 		index: 0,
 		row: {
-			UserID : "",
-			UserName: "",
-			UserPwd: "",
-			UserSex: 2,
-			UserPhone: "",
-			UserEmail: ""
+			foodId : "",
+			foodName: "",
+			foodStock: "",
+			foodType: "",
+			foodPrice: "",
+			foodImg: "",
+			foodUnit:""
 		}
 	})
 });
-
 
 function saveData(index, field, value) {
 	$table.bootstrapTable('updateCell', {
 		index: index,       //行索引
 		field: field,       //列名
 		value: value       //cell值
-	})
+	});
+	var row=$table.bootstrapTable('getRowByIndex',index);
+	var have=false;
+	for(let i=0;i<change.length;i++){
+		if(change[i].foodId==row.foodId){
+			change[i]=row;
+			have=true;
+		}
+	}
+	if(!have){
+		change.push(row);
+	}
 }

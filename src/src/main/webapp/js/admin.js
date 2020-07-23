@@ -1,16 +1,14 @@
 var data = [];
-
+var change=[];
 $('#table').bootstrapTable({
 	url: "getAllUser.action",
 	locale: 'zh-CN',
 	search: true,
-
 	data: data,    // 表格数据来源
 	checkbox: true,
 	pagination: true, // 是否分页
 	toolbar:"#toolbar",
 	pageSize: 30, // 单页记录数
-
 	columns: [
 		{
 			checkbox: true
@@ -78,9 +76,7 @@ $remove.click(function () {
 });
 
 $update.click(function () {
-	alert(JSON.stringify($table.bootstrapTable('getData')));
-	var res = $table.bootstrapTable('getData');
-	var newjson = JSON.stringify(res);
+	var newjson = JSON.stringify(change);
 	$.ajax({
 		url:'updateUser.action',
 		type:'POST',
@@ -116,7 +112,18 @@ function saveData(index, field, value) {
 		index: index,       //行索引
 		field: field,       //列名
 		value: value       //cell值
-	})
+	});
+	var row=$table.bootstrapTable('getRowByIndex',index);
+	var have=false;
+	for(let i=0;i<change.length;i++){
+		if(change[i].userId==row.userId){
+			change[i]=row;
+			have=true;
+		}
+	}
+	if(!have){
+		change.push(row);
+	}
 }
 
 // 格式化性别"sex": 0,是男  "sex": 1,是女
